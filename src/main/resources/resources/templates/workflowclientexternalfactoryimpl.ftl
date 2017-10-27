@@ -32,10 +32,8 @@ public class ${clientExternalFactoryImplName} extends WorkflowClientFactoryExter
 <#if workflow.executeMethod??>
 <#assign executeMethod = workflow.executeMethod>
 <#assign workflowName = executeMethod.workflowName>
-<#assign workflowVersion = executeMethod.workflowVersion>
         WorkflowType workflowType = new WorkflowType();
         workflowType.setName("${workflowName}");
-        workflowType.setVersion("${workflowVersion}");
         return new ${clientExternalImplName}(workflowExecution, workflowType, options, dataConverter, genericClient);
 <#else>
         return new ${clientExternalImplName}(workflowExecution, null, options, dataConverter, genericClient);

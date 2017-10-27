@@ -3,7 +3,6 @@
 <#macro generateActivitiesMethodImpl activities>
 <#list activities.activities as activityMethod>
 <#assign activityName = activityMethod.activityName>
-<#assign activityVersion = activityMethod.activityVersion>
 <#assign parameterCount = activityMethod.methodParameters?size>
 <#assign hasParameters = (parameterCount > 0)>
 <#assign activityImplMethodName = "${activityMethod.methodName}Impl">
@@ -64,7 +63,6 @@
 
         ActivityType _activityType = new ActivityType();
 		_activityType.setName("${activityName}");
-		_activityType.setVersion("${activityVersion}");
 
         Promise[] _input_ = new Promise[${parameterCount}];
 <#list activityMethod.methodParameters as param>

@@ -4,7 +4,6 @@
 <#if workflow.executeMethod??>
 <#assign executeMethod = workflow.executeMethod>
 <#assign workflowName = executeMethod.workflowName>
-<#assign workflowVersion = executeMethod.workflowVersion>
 <#assign parameterCount = executeMethod.methodParameters?size>
 <#assign hasParameters = (parameterCount > 0)>
 <#assign workflowImplMethodName = "${executeMethod.methodName}Impl">
