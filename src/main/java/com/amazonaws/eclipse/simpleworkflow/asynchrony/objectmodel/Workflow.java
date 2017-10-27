@@ -23,8 +23,8 @@ public class Workflow extends TypeDefinition {
     private GetStateMethod getStateMethod;
     private List<SignalMethod> signals;
     
-    public Workflow(String prefix, String version, String dataConverter, String interfaceName, String qualifiedName) {
-        super(prefix, version, dataConverter, interfaceName, qualifiedName);
+    public Workflow(String prefix, String dataConverter, String interfaceName, String qualifiedName) {
+        super(prefix, dataConverter, interfaceName, qualifiedName);
     }
     
     @SuppressWarnings("unchecked")

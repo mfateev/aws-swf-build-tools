@@ -29,9 +29,7 @@ import com.amazonaws.services.simpleworkflow.flow.annotations.Activity;
 
 public class ActivitiesValidator extends ElementScanner6<Boolean, ProcessingEnvironment> {
     private boolean hasErrors = false;
-    private String version;
-    private String parentVersion;
-    
+
     public boolean isHasErrors() {
         return hasErrors;
     }
@@ -47,8 +45,6 @@ public class ActivitiesValidator extends ElementScanner6<Boolean, ProcessingEnvi
                 reportError(p, "@Activities not allowed on inner or nested types.", e);
             }
             
-            version = ProcessorUtils.getActivitiesVersion(e);
-            parentVersion = ProcessorUtils.getParentActivitiesVersion(p, e);
         }
 
         return super.visitType(e, p);
@@ -68,14 +64,14 @@ public class ActivitiesValidator extends ElementScanner6<Boolean, ProcessingEnvi
                 reportError(p, "Activity methods are not allowed to have Promise parameter type.", parameter);
             }
         }
-        
-        if ((version == null || version.isEmpty()) && (parentVersion == null || parentVersion.isEmpty())) {
-            Activity activityAnnotation = e.getAnnotation(Activity.class);
-            if (activityAnnotation == null || activityAnnotation.name().isEmpty()) {
-                reportError(p, "Activity version not specified.", e);
-            }
-        }
-        
+
+//        if ((version == null || version.isEmpty()) && (parentVersion == null || parentVersion.isEmpty())) {
+//            Activity activityAnnotation = e.getAnnotation(Activity.class);
+//            if (activityAnnotation == null || activityAnnotation.name().isEmpty()) {
+//                reportError(p, "Activity version not specified.", e);
+//            }
+//        }
+
         return super.visitExecutable(e, p);
     }
     

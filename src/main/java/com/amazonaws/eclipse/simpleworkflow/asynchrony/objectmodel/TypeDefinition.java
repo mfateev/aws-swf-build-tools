@@ -22,7 +22,7 @@ import java.util.List;
 
 public class TypeDefinition {
     private final String prefix;
-    private final String version;
+//    private final String version;
     private final String dataConverter;
     private final String interfaceName;
     private final String qualifiedName;
@@ -30,10 +30,10 @@ public class TypeDefinition {
     
     private List<? extends TypeDefinition> superTypes;
     
-    public TypeDefinition(String prefix, String version, String dataConverter, String interfaceName, 
+    public TypeDefinition(String prefix, String dataConverter, String interfaceName,
             String qualifiedName) {
         this.prefix = prefix;
-        this.version = version;
+//        this.version = version;
         this.dataConverter = dataConverter;
         this.interfaceName = interfaceName;
         this.qualifiedName = qualifiedName;
@@ -44,9 +44,9 @@ public class TypeDefinition {
         return prefix;
     }
     
-    public String getVersion() {
-        return version;
-    }
+//    public String getVersion() {
+//        return version;
+//    }
     
     public String getDataConverter() {
         return dataConverter;

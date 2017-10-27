@@ -42,11 +42,11 @@ public class ActivitiesDeclarationVisitor extends ElementScanner6<Void, Processi
         this.annotationsToExcludeFromCopying = annotationsToExcludeFromCopying;
         
         String prefix = ProcessorUtils.getActivitiesNamePrefix(activities);
-        String version = ProcessorUtils.getActivitiesVersion(activities);
+//        String version = ProcessorUtils.getActivitiesVersion(activities);
         String dataConverter = ProcessorUtils.getActivitiesDataConverter(processingEnv, activities, activitiesAnnotationType);
         String interfaceName = activities.getSimpleName().toString();
         String qualifiedName = activities.toString();
-        this.activitiesDefinition = new Activities(prefix, version, dataConverter, interfaceName, qualifiedName);
+        this.activitiesDefinition = new Activities(prefix, dataConverter, interfaceName, qualifiedName);
         List<Activities> superTypes = ProcessorUtils.getAllSuperActivities(processingEnv, activities, activitiesAnnotationType, 
                 annotationsToExcludeFromCopying);
         this.activitiesDefinition.setSuperTypes(superTypes);
@@ -60,23 +60,23 @@ public class ActivitiesDeclarationVisitor extends ElementScanner6<Void, Processi
     @Override
     public Void visitExecutable(ExecutableElement method, ProcessingEnvironment env) {
         String prefix = activitiesDefinition.getPrefix();
-        String version = activitiesDefinition.getVersion();
+//        String version = activitiesDefinition.getVersion();
         if (parentActivities != null) {
             if (prefix == null || prefix.isEmpty()) {
                 prefix = parentActivities.getPrefix();
             }
             
-            if (version == null || version.isEmpty()) {
-                version = parentActivities.getVersion();
-            }
+//            if (version == null || version.isEmpty()) {
+//                version = parentActivities.getVersion();
+//            }
         }
         
         String activityName = ProcessorUtils.computeActivityName(
                 prefix, activitiesDefinition.getInterfaceName(), method);
-        String activityVersion = ProcessorUtils.computeActivityVersion(version,
-                method);
+//        String activityVersion = ProcessorUtils.computeActivityVersion(version,
+//                method);
         
-        ActivityMethod activity = new ActivityMethod(activityName, activityVersion);
+        ActivityMethod activity = new ActivityMethod(activityName);
         setMethodInfo(method, activity, activitiesDefinition.getPackageName());
         
         activity.setAnnotationsToCopy(ProcessorUtils.getAnnotationsText(env, method, annotationsToExcludeFromCopying));

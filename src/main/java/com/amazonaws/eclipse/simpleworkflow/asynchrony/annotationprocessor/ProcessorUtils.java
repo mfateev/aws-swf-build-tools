@@ -261,26 +261,26 @@ final class ProcessorUtils {
         return activityPrefix;
     }
 
-    public static String getActivitiesVersion(TypeElement activitiesElement) {
-        if (activitiesElement == null) return null;
-
-        Activities annotation = activitiesElement.getAnnotation(Activities.class);
-        if (annotation == null) return null;
-        
-        return annotation.version();
-    }
-    
-    public static String getParentActivitiesVersion(ProcessingEnvironment processingEnv, TypeElement activities) {
-        for (TypeMirror superInterfaceType : activities.getInterfaces()) {
-            Element superInterfaceDeclaration = processingEnv.getTypeUtils().asElement(superInterfaceType);
-            String parentVersion = getActivitiesVersion((TypeElement) superInterfaceDeclaration);
-            if (parentVersion != null && !parentVersion.isEmpty()) {
-                return parentVersion;
-            }
-        }
-        
-        return null;
-    }
+//    public static String getActivitiesVersion(TypeElement activitiesElement) {
+//        if (activitiesElement == null) return null;
+//
+//        Activities annotation = activitiesElement.getAnnotation(Activities.class);
+//        if (annotation == null) return null;
+//
+//        return annotation.version();
+//    }
+//
+//    public static String getParentActivitiesVersion(ProcessingEnvironment processingEnv, TypeElement activities) {
+//        for (TypeMirror superInterfaceType : activities.getInterfaces()) {
+//            Element superInterfaceDeclaration = processingEnv.getTypeUtils().asElement(superInterfaceType);
+//            String parentVersion = getActivitiesVersion((TypeElement) superInterfaceDeclaration);
+//            if (parentVersion != null && !parentVersion.isEmpty()) {
+//                return parentVersion;
+//            }
+//        }
+//
+//        return null;
+//    }
 
     public static String getActivitiesDataConverter(ProcessingEnvironment env, TypeElement activitiesElement,
             DeclaredType activitiesAnnotation) {

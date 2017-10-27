@@ -49,7 +49,7 @@ public class WorkflowTypeVisitor extends ElementScanner6<Void, ProcessingEnviron
         String dataConverter = ProcessorUtils.getWorkflowDataConverter(processingEnv, workflow, workflowAnnotationType);
         String interfaceName = workflow.getSimpleName().toString();
         String qualifiedName = workflow.toString();
-        this.workflowDefinition = new Workflow(null, null, dataConverter, interfaceName, qualifiedName);
+        this.workflowDefinition = new Workflow(null, dataConverter, interfaceName, qualifiedName);
         List<Workflow> superTypes = ProcessorUtils.getAllSuperWorkflows(processingEnv, workflow, workflowAnnotationType, 
                 annotationsToExcludeFromCopying);
         this.workflowDefinition.setSuperTypes(superTypes);

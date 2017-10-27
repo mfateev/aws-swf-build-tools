@@ -22,10 +22,10 @@ public final class SharedProcessorUtils {
     public static Activities getParentActivities(Activities activities) {
         
         for(Activities parent: activities.getSuperTypes()) {
-            String parentVersion = parent.getVersion(); 
-            if (parentVersion != null && !parentVersion.isEmpty()) {
-                return parent;
-            }
+//            String parentVersion = parent.getVersion();
+//            if (parentVersion != null && !parentVersion.isEmpty()) {
+//                return parent;
+//            }
         }
         
         return null;

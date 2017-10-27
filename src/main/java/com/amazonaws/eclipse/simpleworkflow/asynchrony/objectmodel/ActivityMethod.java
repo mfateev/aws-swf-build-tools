@@ -17,20 +17,20 @@ package com.amazonaws.eclipse.simpleworkflow.asynchrony.objectmodel;
 
 public class ActivityMethod extends Method {
     private final String activityName;
-    private final String activityVersion;
+//    private final String activityVersion;
     
     
-    public ActivityMethod(String activityName, String activityVersion) {
+    public ActivityMethod(String activityName) {
         this.activityName = activityName;
-        this.activityVersion = activityVersion;
+//        this.activityVersion = activityVersion;
     }
     
     public String getActivityName() {
         return activityName;
     }
     
-    public String getActivityVersion() {
-        return activityVersion;
-    }
+//    public String getActivityVersion() {
+//        return activityVersion;
+//    }
 
 }
