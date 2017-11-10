@@ -8,21 +8,21 @@
 <#assign hasParameters = (parameterCount > 0)>
 <#if hasParameters>
     @Override
-    public void ${executeMethod.methodName}(<@lib.printParameters executeMethod/>) { 
+    public void ${executeMethod.methodName}(<@lib.printParameters executeMethod/>) throws WorkflowExecutionAlreadyStartedException {
         ${executeMethod.methodName}(<@lib.printInput executeMethod/>null);
     }
 
     @Override
-    public void ${executeMethod.methodName}(<@lib.printParameters executeMethod/>, StartWorkflowOptions startOptionsOverride) {
+    public void ${executeMethod.methodName}(<@lib.printParameters executeMethod/>, StartWorkflowOptions startOptionsOverride) throws WorkflowExecutionAlreadyStartedException {
     
 <#else>
     @Override
-    public void ${executeMethod.methodName}() { 
+    public void ${executeMethod.methodName}() throws WorkflowExecutionAlreadyStartedException {
         ${executeMethod.methodName}(null);
     }
 
     @Override
-    public void ${executeMethod.methodName}(StartWorkflowOptions startOptionsOverride) {
+    public void ${executeMethod.methodName}(StartWorkflowOptions startOptionsOverride) throws WorkflowExecutionAlreadyStartedException {
     
 </#if>
         Object[] _arguments_ = new Object[${parameterCount}]; 
@@ -88,9 +88,10 @@ package ${packageName};
 import com.amazonaws.services.simpleworkflow.flow.DataConverter;
 import com.amazonaws.services.simpleworkflow.flow.StartWorkflowOptions;
 import com.amazonaws.services.simpleworkflow.flow.WorkflowClientExternalBase;
+import com.amazonaws.services.simpleworkflow.flow.WorkflowExecutionAlreadyStartedException;
 import com.amazonaws.services.simpleworkflow.flow.generic.GenericWorkflowClientExternal;
-import com.amazonaws.services.simpleworkflow.model.WorkflowExecution;
-import com.amazonaws.services.simpleworkflow.model.WorkflowType;
+import com.uber.cadence.WorkflowExecution;
+import com.uber.cadence.WorkflowType;
 
 class ${clientExternalImplName} extends WorkflowClientExternalBase implements ${clientExternalInterfaceName} {
 

@@ -2,13 +2,13 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.amazonaws</groupId>
-    <artifactId>aws-swf-build-tools</artifactId>
-    <version>1.1</version>
+    <groupId>com.uber</groupId>
+    <artifactId>cadence-annotation-processor</artifactId>
+    <version>0.0.1</version>
     <packaging>jar</packaging>
 
-    <name>AWS SWF Build Tools</name>
-    <description>The SWF build tools jar is required to build AWS SWF flow code.</description>
+    <name>Cadence annotation processor</name>
+    <description>Cadence annotation processor. Based on AWS SWF annotation processor</description>
     <url>https://aws.amazon.com/documentation/swf</url>
     <scm>
         <url>https://github.com/aws/aws-swf-build-tools.git</url>

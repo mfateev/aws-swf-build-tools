@@ -67,7 +67,7 @@
 <#list executeMethod.methodParameters as param>
                 _input_[${param_index}] = ${param.parameterName}.get();
 </#list>
-                String _stringInput_ = dataConverter.toData(_input_);
+                byte[] _stringInput_ = dataConverter.toData(_input_);
 				_parameters_.setInput(_stringInput_);
 				_parameters_ = _parameters_.createContinueAsNewParametersFromOptions(schedulingOptions, schedulingOptionsOverride);
                 

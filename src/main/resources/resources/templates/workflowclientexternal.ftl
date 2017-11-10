@@ -4,6 +4,7 @@ package ${packageName};
 
 import com.amazonaws.services.simpleworkflow.flow.StartWorkflowOptions;
 import com.amazonaws.services.simpleworkflow.flow.WorkflowClientExternal;
+import com.amazonaws.services.simpleworkflow.flow.WorkflowExecutionAlreadyStartedException;
 
 /**
  * Generated from {@link ${qualifiedTypeName}}. 
@@ -24,23 +25,23 @@ public interface ${clientExternalInterfaceName} extends WorkflowClientExternal
     /**
      * Generated from {@link ${qualifiedTypeName}#${executeMethod.methodName}}
      */
-    void ${executeMethod.methodName}();
+    void ${executeMethod.methodName}() throws WorkflowExecutionAlreadyStartedException;
 
     /**
      * Generated from {@link ${qualifiedTypeName}#${executeMethod.methodName}}
      */
-    void ${executeMethod.methodName}(StartWorkflowOptions optionsOverride);
+    void ${executeMethod.methodName}(StartWorkflowOptions optionsOverride) throws WorkflowExecutionAlreadyStartedException;
 <#else>
 
     /**
      * Generated from {@link ${qualifiedTypeName}#${executeMethod.methodName}}
      */
-    void ${executeMethod.methodName}(<@lib.printParameters executeMethod/>);
+    void ${executeMethod.methodName}(<@lib.printParameters executeMethod/>) throws WorkflowExecutionAlreadyStartedException;
 
     /**
      * Generated from {@link ${qualifiedTypeName}#${executeMethod.methodName}}
      */
-    void ${executeMethod.methodName}(<@lib.printParameters executeMethod/>, StartWorkflowOptions optionsOverride);
+    void ${executeMethod.methodName}(<@lib.printParameters executeMethod/>, StartWorkflowOptions optionsOverride) throws WorkflowExecutionAlreadyStartedException;
 </#if>
 </#if>
 <#list workflow.signals as signalMethod>
